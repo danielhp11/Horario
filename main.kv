@@ -1,0 +1,118 @@
+#: include kv/Lunes.kv
+#: include kv/Martes.kv
+#: include kv/Miercoles.kv
+#: include kv/Jueves.kv
+#: include kv/Viernes.kv
+#: include kv/Sabado.kv
+
+MDNavigationLayout:
+    id: nav_layout
+
+    ScreenManager:
+        Screen:
+
+            BoxLayout:
+                orientation: "vertical"
+
+                MDToolbar:
+                    title: app.title
+                    elevation: 10
+                    left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+
+                ScreenManager: 
+                    id: screen_manager
+
+                    Lunes: 
+                        id: Lunes
+                        name: "Lunes"
+                    
+                    Martes: 
+                        id: Martes
+                        name: "Martes"
+                    
+                    Miercoles: 
+                        id: Miercoles
+                        name: "Miercoles"
+                    
+                    Jueves: 
+                        id: Jueves
+                        name: "Jueves"
+                    
+                    Viernes: 
+                        id: Viernes
+                        name: "Viernes"
+                    
+                    Sabado: 
+                        id: Sabado
+                        name: "Sabado"
+                    
+
+                    
+        
+    MDNavigationDrawer:
+        id: nav_drawer
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: "8dp"
+            spacing: "8dp"
+
+            Image: 
+                size_hint: None , None
+                size: "200dp" , "200dp"
+                source: "logo.png"   
+
+            
+            ScrollView:
+                MDList:
+
+                    OneLineIconListItem:
+                        text: "Lunes"
+                        on_release:
+                            screen_manager.current = "Lunes"
+                            nav_drawer.set_state () 
+                        IconLeftWidget:
+                            icon: "alpha-a-box"
+
+                    OneLineIconListItem:
+                        text: "Martes"
+                        on_release:
+                            screen_manager.current = "Martes"
+                            nav_drawer.set_state () 
+                        IconLeftWidget:
+                            icon: "alpha-n-box"
+                        
+                    OneLineIconListItem:
+                        text: "Miercoles"
+                        on_release:
+                            screen_manager.current = "Miercoles"
+                            nav_drawer.set_state () 
+                        IconLeftWidget:
+                            icon: "alpha-d-box"
+                    
+                    OneLineIconListItem:
+                        text: "Jueves"
+                        on_release:
+                            screen_manager.current = "Jueves"
+                            nav_drawer.set_state () 
+                        IconLeftWidget:
+                            icon: "alpha-r-box"
+                    
+                    OneLineIconListItem:
+                        text: "Viernes"
+                        on_release:
+                            screen_manager.current = "Viernes"
+                            nav_drawer.set_state () 
+                        IconLeftWidget:
+                            icon: "alpha-e-box"
+                        
+                    OneLineIconListItem:
+                        text: "Sabado"
+                        on_release:
+                            screen_manager.current = "Sabado"
+                            nav_drawer.set_state () 
+                        IconLeftWidget:
+                            icon: "alpha-a-box"
+                    
+                    
+                        
